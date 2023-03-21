@@ -1,12 +1,13 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-10 16:45:35
- * @LastEditTime: 2023-02-19 23:26:17
+ * @LastEditTime: 2023-03-21 20:21:51
  * @FilePath: /leetcode/code/21.go
  * @Description:21.合并两个有序链表
  */
 package code
 
+import ."leetcode/code_struct"
 
 func MergeTowList(list1 *ListNode, list2 *ListNode) *ListNode {
 	head := &ListNode{}

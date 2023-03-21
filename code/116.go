@@ -1,13 +1,13 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-08 00:30:36
- * @LastEditTime: 2023-02-19 23:34:31
+ * @LastEditTime: 2023-03-21 20:22:21
  * @FilePath: /leetcode/code/116.go
  * @Description:116.填充每个节点的下一个右侧节点指针
  */
 package code
 
-
+import ."leetcode/code_struct"
 
 func Connect(root *Node) *Node{
 	node := root

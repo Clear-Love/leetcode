@@ -1,11 +1,13 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-20 21:47:12
- * @LastEditTime: 2023-02-20 22:36:02
+ * @LastEditTime: 2023-03-21 20:21:56
  * @FilePath: /leetcode/code/82.go
  * @Description:82.删除有序链表中的重复元素II
  */
 package code
+
+import ."leetcode/code_struct"
 
 func DeleteDuplicates(head *ListNode) *ListNode {
 	if head == nil {
