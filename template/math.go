@@ -1,12 +1,11 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-19 23:30:39
- * @LastEditTime: 2023-02-21 20:16:43
+ * @LastEditTime: 2023-03-22 16:03:35
  * @FilePath: /leetcode/template/math.go
  * @Description:数学
  */
 package template
-
 
 func Max(x, y int) int {
 	if x > y {
