@@ -1,25 +1,11 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-19 23:30:39
- * @LastEditTime: 2023-03-22 16:03:35
+ * @LastEditTime: 2023-03-23 17:06:04
  * @FilePath: /leetcode/template/math.go
  * @Description:数学
  */
 package template
-
-func Max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
-func Min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
 
 func FindIntersection(a []int, b []int) []int {
     lA, rA := a[0], a[1]
@@ -48,4 +34,90 @@ func FindIntersection(a []int, b []int) []int {
         }
     }
     return []int{min, max}
+}
+
+/**
+ * @description: 返回所有整数的最小值
+ * @param {int} first
+ * @param {...int} others
+ * @return {*} min 最小值
+ */
+func Min(first int, others ...int) int {
+    min := first
+    for _, v := range others {
+        if v < min {
+            min = v
+        }
+    }
+    return min
+}
+
+/**
+ * @description: 返回所有整数的最大值
+ * @param {int} first
+ * @param {...int} others
+ * @return {*} max 最大值
+ */
+func Max(first int, others ...int) int {
+    max := first
+    for _, v := range others {
+        if v >max {
+            max = v
+        }
+    }
+    return max
+}
+
+/**
+ * @description: 返回最小值（空接口接受多类型参数）
+ * @param {interface{}} first
+ * @param {...interface{}} rest
+ * @return {*} min
+ */
+func Minimum(first interface{}, rest ...interface{}) interface{} {
+    min := first
+    for _, v := range rest {
+        switch v := v.(type) {
+            case int:
+                if v < min.(int) {
+                    min = v
+                }
+            case float64:
+                if v < min.(float64) {
+                    min = v
+                }
+            case string:
+                if v < min.(string) {
+                    min = v
+                }
+            }
+    }
+    return min
+}
+
+/**
+ * @description: 返回最小值（空接口接受多类型参数） 
+ * @param {interface{}} first
+ * @param {...interface{}} rest
+ * @return {*} max
+ */
+func Maximum(first interface{}, rest ...interface{}) interface{} {
+    max := first
+    for _, v := range rest {
+        switch v := v.(type) {
+            case int:
+                if v > max.(int) {
+                    max = v
+                }
+            case float64:
+                if v > max.(float64) {
+                    max = v
+                }
+            case string:
+                if v > max.(string) {
+                    max = v
+                }
+            }
+    }
+    return max
 }
