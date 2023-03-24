@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-05 21:43:03
- * @LastEditTime: 2023-03-21 20:21:35
+ * @LastEditTime: 2023-03-23 23:11:57
  * @FilePath: /leetcode/code/19.go
  * @Description:19.删除链表的倒数第N个结点
  */
@@ -11,7 +11,7 @@ import . "leetcode/code_struct"
 
 func RemoveNthFromEnd(head *ListNode, n int) *ListNode {
 	right := head
-	left := &ListNode{0, head}
+	left := &ListNode{Val: 0, Next: head}
 	for i := 0; i < n ; i++ {
 			right = right.Next
 	}

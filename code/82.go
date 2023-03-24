@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-20 21:47:12
- * @LastEditTime: 2023-03-21 20:21:56
+ * @LastEditTime: 2023-03-23 23:11:24
  * @FilePath: /leetcode/code/82.go
  * @Description:82.删除有序链表中的重复元素II
  */
@@ -14,7 +14,7 @@ func DeleteDuplicates(head *ListNode) *ListNode {
         return nil
     }
 
-    dummy := &ListNode{0, head}
+    dummy := &ListNode{Val: 0, Next: head}
 
     cur := dummy
     for cur.Next != nil && cur.Next.Next != nil {
