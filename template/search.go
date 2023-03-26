@@ -1,26 +1,22 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-03 05:29:24
- * @LastEditTime: 2023-03-22 14:34:14
+ * @LastEditTime: 2023-03-26 23:39:57
  * @FilePath: /leetcode/template/search.go
  * @Description:二分搜索及其变种
  */
 package template
 
+/**
+ * @description: 返回小于等于目标值下标
+ * @param {[]int} nums
+ * @param {int} target
+ * @return {*}
+ */
 func Search_left(nums []int, target int) int {
-	left, right:= 0, len(nums)-1
-	for left < right {
-		mid := (left + right + 1) >> 1
-		if nums[mid] > target {
-			right = mid - 1
-		}else {
-			left = mid
-		}
+	if len(nums) == 0 {
+		return -1
 	}
-	return left
-}
-
-func Search_right(nums []int, target int) int {
 	left, right:= 0, len(nums)-1
 	for left < right {
 		mid := (left + right) >> 1
@@ -30,18 +26,33 @@ func Search_right(nums []int, target int) int {
 			right = mid
 		}
 	}
+	if nums[left] != target {
+		return -1
+	}
 	return left
 }
 
-func Search_right_(nums []int, target int) int {
+/**
+ * @description: 返回大于等于目标值的下标
+ * @param {[]int} nums
+ * @param {int} target
+ * @return {*}
+ */
+func Search_right(nums []int, target int) int {
+	if len(nums) == 0 {
+		return -1
+	}
 	left, right:= 0, len(nums)-1
 	for left < right {
-		mid := (left + right) >> 1
-		if nums[mid] <= target {
-			left = mid + 1
+		mid := (left + right + 1) >> 1
+		if nums[mid] > target {
+			right = mid - 1
 		}else {
-			right = mid
+			left = mid
 		}
+	}
+	if nums[left] != target {
+		return -1
 	}
 	return left
 }
