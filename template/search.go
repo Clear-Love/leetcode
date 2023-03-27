@@ -1,14 +1,14 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-03 05:29:24
- * @LastEditTime: 2023-03-26 23:39:57
+ * @LastEditTime: 2023-03-27 17:33:01
  * @FilePath: /leetcode/template/search.go
  * @Description:二分搜索及其变种
  */
 package template
 
 /**
- * @description: 返回小于等于目标值下标
+ * @description: 返回等于目标值下标(若有多个，返回最左边的)
  * @param {[]int} nums
  * @param {int} target
  * @return {*}
@@ -33,7 +33,7 @@ func Search_left(nums []int, target int) int {
 }
 
 /**
- * @description: 返回大于等于目标值的下标
+ * @description: 返回等于目标值的下标(若有多个返回最右边的)
  * @param {[]int} nums
  * @param {int} target
  * @return {*}
