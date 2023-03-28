@@ -1,18 +1,13 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-07 23:52:37
- * @LastEditTime: 2023-02-19 23:29:16
+ * @LastEditTime: 2023-03-28 15:56:32
  * @FilePath: /leetcode/code/617.go
  * @Description:617.合并二叉树
  */
 package code
 
-type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
-}
- 
+import ."leetcode/code_struct" 
 
 func MergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
 	if root1 == nil && root2 == nil {

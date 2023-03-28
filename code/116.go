@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-08 00:30:36
- * @LastEditTime: 2023-03-21 20:22:21
+ * @LastEditTime: 2023-03-28 14:53:18
  * @FilePath: /leetcode/code/116.go
  * @Description:116.填充每个节点的下一个右侧节点指针
  */
@@ -9,7 +9,7 @@ package code
 
 import ."leetcode/code_struct"
 
-func Connect(root *Node) *Node{
+func ConnectI(root *Node) *Node{
 	node := root
 	for node != nil {
 		if node.Left == nil {
