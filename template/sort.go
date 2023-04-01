@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-03-22 11:06:31
- * @LastEditTime: 2023-03-22 14:21:31
+ * @LastEditTime: 2023-03-30 14:43:25
  * @FilePath: /leetcode/template/sort.go
  * @Description:排序
  */
@@ -20,32 +20,40 @@ func SortMapValues(m map[rune]int) []int {
 
 
 /**
- * @description: 插入排序，从小到大 适用于数组基本有序的情况
+ * @description: 插入排序,适用于数组基本有序的情况
  * @param {[]int} array
  * @return {*}
  */
-func InsertSortUp(array []int)[]int  {
+func InsertSortUp(array []int, less func(i, j int) bool)[]int  {
     n := len(array)
     for i:=1;i<n;i++ {
-        for j:=i;j>0 && array[j] < array[j-1];j-- {
+        for j:=i;j>0 && less(i, j);j-- {
                 array[j],array[j-1] = array[j-1],array[j]
         }    
     }
     return array
 }
 
-
 /**
- * @description: 插入排序，从大到小
- * @param {[]int} array
+ * @description: 桶排序，适用与数据量大且数据范围不大
+ * @param {[]int} arr
+ * @param {int} maxVal
  * @return {*}
  */
-func InsertSortDown(array []int)[]int  {
-    n := len(array)
-    for i:=1;i<n;i++ {
-        for j:=i;j>0 && array[j] > array[j-1];j-- {
-                array[j],array[j-1] = array[j-1],array[j]
-        }    
+func BucketSort(arr []int, maxVal int) []int {
+    // 创建桶
+    bucket := make([]int, maxVal+1)
+    // 计数每个元素的个数，放入桶中
+    for _, val := range arr {
+        bucket[val]++
     }
-    return array
+    // 将桶中的元素按顺序放回原数组中
+    k := 0
+    for i := 0; i <= maxVal; i++ {
+        for j := 0; j < bucket[i]; j++ {
+            arr[k] = i
+            k++
+        }
+    }
+    return arr
 }

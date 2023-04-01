@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-19 23:23:52
- * @LastEditTime: 2023-03-27 18:04:00
+ * @LastEditTime: 2023-04-01 14:21:02
  * @FilePath: /leetcode/code_struct/Node.go
  * @Description:leetcode数据结构
  */
@@ -25,6 +25,12 @@ type Node struct {
 	Left  *Node
 	Right *Node
 	Next  *Node
+}
+
+type Node_ struct {
+    Val int
+    Next *Node_
+    Random *Node_
 }
 
 /**
