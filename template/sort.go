@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-03-22 11:06:31
- * @LastEditTime: 2023-03-30 14:43:25
+ * @LastEditTime: 2023-04-01 23:35:33
  * @FilePath: /leetcode/template/sort.go
  * @Description:排序
  */
@@ -9,7 +9,7 @@ package template
 
 import "sort"
 
-func SortMapValues(m map[rune]int) []int {
+func SortMapValues(m map[any]int) []int {
     values := make([]int, 0, len(m))
     for _, v := range m {
         values = append(values, v)
@@ -24,7 +24,7 @@ func SortMapValues(m map[rune]int) []int {
  * @param {[]int} array
  * @return {*}
  */
-func InsertSortUp(array []int, less func(i, j int) bool)[]int  {
+func InsertSortUp[T any](array []T, less func(i, j int) bool)[]T  {
     n := len(array)
     for i:=1;i<n;i++ {
         for j:=i;j>0 && less(i, j);j-- {

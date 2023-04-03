@@ -1,12 +1,20 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-19 23:30:39
- * @LastEditTime: 2023-03-23 17:06:04
+ * @LastEditTime: 2023-04-03 20:14:35
  * @FilePath: /leetcode/template/math.go
  * @Description:数学
  */
 package template
 
+import "math/big"
+
+/**
+ * @description: 返回两个区间的交集
+ * @param {[]int} a A区间
+ * @param {[]int} b B区间
+ * @return {*}
+ */
 func FindIntersection(a []int, b []int) []int {
     lA, rA := a[0], a[1]
 
@@ -42,7 +50,7 @@ func FindIntersection(a []int, b []int) []int {
  * @param {...int} others
  * @return {*} min 最小值
  */
-func Min(first int, others ...int) int {
+func Min[T int|float32|float64](first T, others ...T) T {
     min := first
     for _, v := range others {
         if v < min {
@@ -58,7 +66,7 @@ func Min(first int, others ...int) int {
  * @param {...int} others
  * @return {*} max 最大值
  */
-func Max(first int, others ...int) int {
+func Max[T int|float32|float64](first T, others ...T) T {
     max := first
     for _, v := range others {
         if v >max {
@@ -69,55 +77,46 @@ func Max(first int, others ...int) int {
 }
 
 /**
- * @description: 返回最小值（空接口接受多类型参数）
- * @param {interface{}} first
- * @param {...interface{}} rest
- * @return {*} min
+ * @description: 计算阶层
+ * @param {int} n
+ * @return {*}
  */
-func Minimum(first interface{}, rest ...interface{}) interface{} {
-    min := first
-    for _, v := range rest {
-        switch v := v.(type) {
-            case int:
-                if v < min.(int) {
-                    min = v
-                }
-            case float64:
-                if v < min.(float64) {
-                    min = v
-                }
-            case string:
-                if v < min.(string) {
-                    min = v
-                }
-            }
-    }
-    return min
+func Factorial(n int64) *big.Int {
+	if n == 0 {
+		return big.NewInt(1)
+	}
+	if n < 0 {
+		return big.NewInt(-1)
+	}
+	out := big.NewInt(1)
+	out.MulRange(1, n)
+	return out
 }
 
 /**
- * @description: 返回最小值（空接口接受多类型参数） 
- * @param {interface{}} first
- * @param {...interface{}} rest
- * @return {*} max
+ * @description: 计算排列数 
+ * @param {*} n 总数
+ * @param {int} k 选取的数目
+ * @return {*}
  */
-func Maximum(first interface{}, rest ...interface{}) interface{} {
-    max := first
-    for _, v := range rest {
-        switch v := v.(type) {
-            case int:
-                if v > max.(int) {
-                    max = v
-                }
-            case float64:
-                if v > max.(float64) {
-                    max = v
-                }
-            case string:
-                if v > max.(string) {
-                    max = v
-                }
-            }
-    }
-    return max
+func PermutationCount(n, m int64) *big.Int {
+    out := big.NewInt(0)
+	n1 := Factorial(n)
+	n2 := Factorial(n - m)
+	return out.Div(n1, n2)
+}
+
+/**
+ * @description: 计算组合数 :( 其实big.Int有api Binomial
+ * @param {*} n 总数
+ * @param {int} k 选取的数目
+ * @return {*}
+ */
+func CombinationsCount(n, m int64) *big.Int {
+	out := big.NewInt(0)
+	n1 := Factorial(n)
+	m1 := Factorial(m)
+	n2 := Factorial(n - m)
+	out1 := big.NewInt(0)
+	return out.Div(n1, out1.Mul(m1, n2))
 }
