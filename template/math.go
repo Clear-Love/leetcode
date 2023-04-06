@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-19 23:30:39
- * @LastEditTime: 2023-04-03 20:14:35
+ * @LastEditTime: 2023-04-06 08:20:15
  * @FilePath: /leetcode/template/math.go
  * @Description:数学
  */
@@ -119,4 +119,11 @@ func CombinationsCount(n, m int64) *big.Int {
 	n2 := Factorial(n - m)
 	out1 := big.NewInt(0)
 	return out.Div(n1, out1.Mul(m1, n2))
+}
+
+func GetHighestDigit(n int) int {
+    for n > 9 {
+        n /= 10
+    }
+    return n
 }
