@@ -1,13 +1,13 @@
 /*
  * @Author: lmio
  * @Date: 2023-03-22 15:07:19
- * @LastEditTime: 2023-03-22 16:00:46
+ * @LastEditTime: 2023-04-07 14:34:38
  * @FilePath: /leetcode/code/1224.go
  * @Description:1224.最大相等频率
  */
 package code
 
-import "leetcode/template"
+import "leetcode/utils"
 
 func MaxEqualFreq(nums []int) int {
 	cnts := map[int]int{}
@@ -20,7 +20,7 @@ func MaxEqualFreq(nums []int) int {
 		}
 		cnts[v]++
 		cntsNum[cnts[v]]++
-		maxCnt = template.Max(cnts[v], maxCnt)
+		maxCnt = utils.Max(cnts[v], maxCnt)
 		if maxCnt == 1 ||
 			cntsNum[maxCnt] == 1 && cntsNum[maxCnt-1]*(maxCnt-1) + maxCnt == i+1 ||
 			cntsNum[1] == 1 && cntsNum[maxCnt]*maxCnt+1 == i+1 {

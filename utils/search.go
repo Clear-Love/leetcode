@@ -1,11 +1,11 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-03 05:29:24
- * @LastEditTime: 2023-03-27 17:33:01
- * @FilePath: /leetcode/template/search.go
+ * @LastEditTime: 2023-04-07 14:30:01
+ * @FilePath: /leetcode/utils/search.go
  * @Description:二分搜索及其变种
  */
-package template
+package utils
 
 /**
  * @description: 返回等于目标值下标(若有多个，返回最左边的)

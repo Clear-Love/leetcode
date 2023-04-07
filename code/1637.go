@@ -1,14 +1,14 @@
 /*
  * @Author: lmio
  * @Date: 2023-03-30 10:28:03
- * @LastEditTime: 2023-03-30 14:25:01
+ * @LastEditTime: 2023-04-07 14:35:17
  * @FilePath: /leetcode/code/1637.go
  * @Description:1637. 两点之间不包含任何点的最宽垂直区域
  */
 package code
 
 import (
-	"leetcode/template"
+	"leetcode/utils"
 	"sort"
 )
 
@@ -18,7 +18,7 @@ func MaxWidthOfVerticalArea(points [][]int) int {
 	})
 	max := points[1][0] - points[0][0]
 	for i := 2; i < len(points); i++ {
-		max = template.Max(max, points[i][0] - points[i-1][0])
+		max = utils.Max(max, points[i][0] - points[i-1][0])
 	}
 	return max
 }

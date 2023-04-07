@@ -1,11 +1,11 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-19 23:30:39
- * @LastEditTime: 2023-04-06 08:20:15
- * @FilePath: /leetcode/template/math.go
+ * @LastEditTime: 2023-04-07 14:29:51
+ * @FilePath: /leetcode/utils/math.go
  * @Description:数学
  */
-package template
+package utils
 
 import "math/big"
 
@@ -69,7 +69,7 @@ func Min[T int|float32|float64](first T, others ...T) T {
 func Max[T int|float32|float64](first T, others ...T) T {
     max := first
     for _, v := range others {
-        if v >max {
+        if v > max {
             max = v
         }
     }

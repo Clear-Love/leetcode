@@ -1,11 +1,11 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-25 14:12:24
- * @LastEditTime: 2023-04-02 00:19:32
- * @FilePath: /leetcode/template/string.go
+ * @LastEditTime: 2023-04-07 14:30:15
+ * @FilePath: /leetcode/utils/string.go
  * @Description:字符串处理
  */
-package template
+package utils
 
 import "unsafe"
 

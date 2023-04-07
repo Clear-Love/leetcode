@@ -1,13 +1,13 @@
 /*
  * @Author: lmio
  * @Date: 2023-03-23 16:24:27
- * @LastEditTime: 2023-03-23 17:06:16
+ * @LastEditTime: 2023-04-07 14:37:18
  * @FilePath: /leetcode/code/72.go
  * @Description:72.编辑距离
  */
 package code
 
-import "leetcode/template"
+import "leetcode/utils"
 
 func MinDistance(word1 string, word2 string) int {
 	l1, l2 := len(word1), len(word2)
@@ -30,7 +30,7 @@ func MinDistance(word1 string, word2 string) int {
 				dp[i][j] = dp[i-1][j-1]
 			}else {
 				//选取增删改中步数最少的
-				dp[i][j] = template.Min(
+				dp[i][j] = utils.Min(
 					dp[i-1][j],
 					dp[i][j-1],
 					dp[i-1][j-1],

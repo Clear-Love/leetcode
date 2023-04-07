@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-04-06 08:16:37
- * @LastEditTime: 2023-04-06 09:07:22
+ * @LastEditTime: 2023-04-07 14:31:46
  * @FilePath: /leetcode/offer/45.go
  * @Description:面试题45. 把数组排成最小的数
  */
@@ -9,7 +9,7 @@ package offer
 
 import (
 	"fmt"
-	"leetcode/template"
+	"leetcode/utils"
 	"sort"
 	"strconv"
 )
@@ -31,5 +31,5 @@ func MinNumber(nums []int) string {
 		str := strconv.Itoa(val)
 		res = append(res, str...)
 	}
-	return template.ToString(res)
+	return utils.ToString(res)
 }

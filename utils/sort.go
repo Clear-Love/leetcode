@@ -1,11 +1,11 @@
 /*
  * @Author: lmio
  * @Date: 2023-03-22 11:06:31
- * @LastEditTime: 2023-04-01 23:35:33
- * @FilePath: /leetcode/template/sort.go
+ * @LastEditTime: 2023-04-07 14:30:08
+ * @FilePath: /leetcode/utils/sort.go
  * @Description:排序
  */
-package template
+package utils
 
 import "sort"
 
@@ -24,7 +24,7 @@ func SortMapValues(m map[any]int) []int {
  * @param {[]int} array
  * @return {*}
  */
-func InsertSortUp[T any](array []T, less func(i, j int) bool)[]T  {
+func InsertSortUp[T comparable](array []T, less func(i, j int) bool)[]T  {
     n := len(array)
     for i:=1;i<n;i++ {
         for j:=i;j>0 && less(i, j);j-- {
@@ -33,6 +33,33 @@ func InsertSortUp[T any](array []T, less func(i, j int) bool)[]T  {
     }
     return array
 }
+
+func InsertSortarr[T int|int64|float32|float64](arr []T, num T) []T {
+    // 找到插入位置 即找到大于目标值的第一个数
+    l, r := 0, len(arr)
+    for l < r {
+        mid := (l + r) >> 1
+        if arr[mid] < num {
+            l = mid + 1
+        }else {
+            r = mid
+        }
+    }
+
+    // 检查是否插入到末尾
+    if l == len(arr) {
+        // 直接将新元素添加到末尾
+        arr = append(arr, num)
+    } else {
+        // 将插入位置后的元素都向后移动一位
+        arr = append(arr[:l+1], arr[l:]...)
+
+        // 插入新元素
+        arr[l] = num
+    }
+    return arr
+}
+
 
 /**
  * @description: 桶排序，适用与数据量大且数据范围不大

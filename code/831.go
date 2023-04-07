@@ -8,7 +8,7 @@
 package code
 
 import (
-	"leetcode/template"
+	"leetcode/utils"
 	"strings"
 	"unicode"
 )
@@ -26,7 +26,7 @@ func MaskPII(s string) string {
             bs = append(bs, ch)
         }
     }
-    s = template.ToString(bs)
+    s = utils.ToString(bs)
     country := []string{"", "+*-", "+**-", "+***-"}
     return country[len(s)-10] + "***-***-" + s[len(s)-4:]
 }

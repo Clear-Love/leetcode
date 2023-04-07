@@ -1,14 +1,14 @@
 /*
  * @Author: lmio
  * @Date: 2023-04-03 10:17:40
- * @LastEditTime: 2023-04-03 10:49:04
+ * @LastEditTime: 2023-04-07 14:33:22
  * @FilePath: /leetcode/code/151.go
  * @Description:151. 反转字符串中的单词
  */
 package code
 
 import (
-	."leetcode/template"
+	."leetcode/utils"
 	"strings"
 )
 
