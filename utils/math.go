@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-19 23:30:39
- * @LastEditTime: 2023-04-07 14:29:51
+ * @LastEditTime: 2023-04-08 11:15:29
  * @FilePath: /leetcode/utils/math.go
  * @Description:数学
  */
@@ -9,13 +9,25 @@ package utils
 
 import "math/big"
 
+
+// 整数
+type Numeric interface {
+	~int | ~int8 | ~int16 | ~int32 | ~int64 |
+	~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64
+}
+
+// 实数
+type Number interface {
+	Numeric | ~float32 | ~float64
+}
+
 /**
  * @description: 返回两个区间的交集
  * @param {[]int} a A区间
  * @param {[]int} b B区间
  * @return {*}
  */
-func FindIntersection(a []int, b []int) []int {
+func FindIntersection[T Numeric](a []T, b []T) []T {
     lA, rA := a[0], a[1]
 
     lB, rB := b[0], b[1]
@@ -23,8 +35,8 @@ func FindIntersection(a []int, b []int) []int {
     // 比较两个区间的最大和最小值
     // 如果存在交集，则交集的最大值为两个最大值中的较小值
     // 交集的最小值为两个最小值中的较大值
-    min := 0
-    max := 0
+    var min T = 0
+    var max T = 0
     if rA < lB || rB < lA {
         // 两个区间没有交集
         return nil
@@ -41,7 +53,7 @@ func FindIntersection(a []int, b []int) []int {
             min = lB
         }
     }
-    return []int{min, max}
+    return []T{min, max}
 }
 
 /**
@@ -50,7 +62,7 @@ func FindIntersection(a []int, b []int) []int {
  * @param {...int} others
  * @return {*} min 最小值
  */
-func Min[T int|float32|float64](first T, others ...T) T {
+func Min[T Number](first T, others ...T) T {
     min := first
     for _, v := range others {
         if v < min {
@@ -66,7 +78,7 @@ func Min[T int|float32|float64](first T, others ...T) T {
  * @param {...int} others
  * @return {*} max 最大值
  */
-func Max[T int|float32|float64](first T, others ...T) T {
+func Max[T Number](first T, others ...T) T {
     max := first
     for _, v := range others {
         if v > max {
@@ -74,6 +86,13 @@ func Max[T int|float32|float64](first T, others ...T) T {
         }
     }
     return max
+}
+
+func Abs[T Number](v T) T {
+    if v < 0 {
+        return -v
+    }
+    return v
 }
 
 /**
