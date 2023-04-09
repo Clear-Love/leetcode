@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-03-22 11:06:31
- * @LastEditTime: 2023-04-07 14:30:08
+ * @LastEditTime: 2023-04-09 17:06:18
  * @FilePath: /leetcode/utils/sort.go
  * @Description:排序
  */
@@ -83,4 +83,17 @@ func BucketSort(arr []int, maxVal int) []int {
         }
     }
     return arr
+}
+
+func ReverseSlice[T any](s []T) {
+	length := len(s)
+	left := 0
+	right := length - 1
+
+	for left < right {
+		// 交换左右指针所指向的元素
+		s[left], s[right] = s[right], s[left]
+		left++
+		right--
+	}
 }
