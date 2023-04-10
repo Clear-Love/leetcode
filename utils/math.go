@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-19 23:30:39
- * @LastEditTime: 2023-04-08 11:15:29
+ * @LastEditTime: 2023-04-10 21:29:08
  * @FilePath: /leetcode/utils/math.go
  * @Description:数学
  */
@@ -145,4 +145,17 @@ func GetHighestDigit(n int) int {
         n /= 10
     }
     return n
+}
+
+/**
+ * @description: 求两个数的最大公约数(使用辗转相除法)
+ * @param {*} a
+ * @param {int} b
+ * @return {*}
+ */
+func Gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+	return Gcd(b, a%b)
 }
