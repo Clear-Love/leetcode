@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-04-10 09:03:53
- * @LastEditTime: 2023-04-10 10:06:48
+ * @LastEditTime: 2023-04-16 14:41:07
  * @FilePath: /leetcode/code/384.go
  * @Description:384. 打乱数组
  */
@@ -19,7 +19,7 @@ type Solution struct {
 }
 
 
-func Constructor(nums []int) Solution {
+func Solution_new(nums []int) Solution {
 	return Solution{Array: nums, socure: append([]int{}, nums...), Size: len(nums)}
 }
 
