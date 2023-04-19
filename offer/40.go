@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-04-07 09:43:52
- * @LastEditTime: 2023-04-07 14:30:33
+ * @LastEditTime: 2023-04-19 11:01:01
  * @FilePath: /leetcode/offer/40.go
  * @Description:剑指 Offer 40. 最小的k个数
  */
@@ -13,7 +13,7 @@ import (
 )
 
 func GetLeastNumbers(arr []int, k int) []int {
-	maxheap := &MaxHeap{}
+	maxheap := &MaxHeap[int]{}
 	for i := 0; i < k; i++ {
 		heap.Push(maxheap, arr[i])
 	}
@@ -21,5 +21,5 @@ func GetLeastNumbers(arr []int, k int) []int {
 		heap.Push(maxheap, arr[i])
 		heap.Pop(maxheap)
 	}
-	return maxheap.Getarr()
+	return maxheap.Slice
 }

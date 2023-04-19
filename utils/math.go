@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-19 23:30:39
- * @LastEditTime: 2023-04-10 21:29:08
+ * @LastEditTime: 2023-04-18 16:21:50
  * @FilePath: /leetcode/utils/math.go
  * @Description:数学
  */
@@ -73,6 +73,23 @@ func Min[T Number](first T, others ...T) T {
 }
 
 /**
+ * @description: 返回切片的最小值
+ * @return {*}
+ */
+func MinSlice[T Number](slice []T) T {
+    if len(slice) == 0 {
+        return 0
+    }
+    min := slice[0]
+    for _, v := range slice {
+        if v < min {
+            min = v
+        }
+    }
+    return min
+}
+
+/**
  * @description: 返回所有整数的最大值
  * @param {int} first
  * @param {...int} others
@@ -88,6 +105,27 @@ func Max[T Number](first T, others ...T) T {
     return max
 }
 
+/**
+ * @description: 返回切片的最小值
+ * @return {*}
+ */
+func MaxSlice[T Number](slice []T) T {
+    if len(slice) == 0 {
+        return 0
+    }
+    max := slice[0]
+    for _, v := range slice {
+        if v > max {
+            max = v
+        }
+    }
+    return max
+}
+
+/**
+ * @description: 求绝对值
+ * @return {*}
+ */
 func Abs[T Number](v T) T {
     if v < 0 {
         return -v
@@ -158,4 +196,19 @@ func Gcd(a, b int) int {
 		return a
 	}
 	return Gcd(b, a%b)
+}
+
+/**
+ * @description: 循环求余，正确计算x^a对p求余的值
+ * @param {*} x
+ * @param {*} a
+ * @param {int} p
+ * @return {*}
+ */
+func Remainder(x, a, p int) int {
+    res := 1
+    for i := 0; i < a; i++ {
+        res = (res*x)%p
+    }
+    return res
 }
