@@ -1,3 +1,9 @@
+'''
+Author: lmio 2091319361@qq.com
+Date: 2023-06-26 15:50:05
+LastEditors: lmio 2091319361@qq.com
+Description: 8. 字符串转换整数 (atoi)
+'''
 def myAtoi(s: str) -> int:
     # 去除前导空格
     s = s.lstrip()
@@ -18,5 +24,3 @@ def myAtoi(s: str) -> int:
             break
         sum = sum*10+int(ch)
     return sign*sum
-
-print(myAtoi("4193 with words"))
