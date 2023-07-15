@@ -1,15 +1,13 @@
 '''
 Author: lmio
 Date: 2023-04-05 17:03:44
-LastEditTime: 2023-04-05 17:36:47
+LastEditTime: 2023-07-14 20:12:46
 FilePath: /leetcode/offer/36.py
 Description: 剑指 Offer 36. 二叉搜索树与双向链表 (这道题不支持go语言)
 '''
-class Node:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+
+from utils.node import TreeNode as Node
+
 
 class Solution:
     def treeToDoublyList(self, root: 'Node') -> 'Node':

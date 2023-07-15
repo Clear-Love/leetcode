@@ -1,18 +1,13 @@
 '''
 Author: lmio
 Date: 2023-04-18 10:25:31
-LastEditTime: 2023-04-18 15:49:21
+LastEditTime: 2023-07-14 20:12:36
 FilePath: /leetcode/offer/37.py
 Description: 剑指 Offer 37. 序列化二叉树
 '''
 import collections
 
-
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from utils.node import TreeNode
 
 class Codec:
 

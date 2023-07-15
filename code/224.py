@@ -74,5 +74,3 @@ def calculate(s: str) -> int:
     while stack:
         rpn.append(stack.pop())
     return evalRPN(rpn)
-
-print(calculate("1-(     -2)"))

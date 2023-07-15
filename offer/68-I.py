@@ -1,16 +1,13 @@
 '''
 Author: lmio
 Date: 2023-04-09 12:56:08
-LastEditTime: 2023-04-09 13:16:29
+LastEditTime: 2023-07-14 20:15:17
 FilePath: /leetcode/offer/68-I.py
 Description: 剑指 Offer 68 - I. 二叉搜索树的最近公共祖先
 '''
 
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from utils.node import TreeNode
+
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':

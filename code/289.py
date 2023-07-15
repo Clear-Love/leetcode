@@ -9,7 +9,7 @@ import copy
 from typing import List
 
 
-def gameOfLife(self, board: List[List[int]]) -> None:
+def gameOfLife(board: List[List[int]]) -> None:
     n, m = len(board), len(board[0])
     modify = {}
     d = [(1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]

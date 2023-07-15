@@ -5,17 +5,10 @@ LastEditors: lmio 2091319361@qq.com
 Description: 173. 二叉搜索树迭代器
 '''
 
-from typing import Optional
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from utils.node import ListNode
 
 class BSTIterator:
-    def __init__(self, root):
+    def __init__(self, root: ListNode):
         self.stack = []
         self._leftmost_inorder(root)
     

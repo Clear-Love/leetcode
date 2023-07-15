@@ -6,10 +6,9 @@ Description: 19. 删除链表的倒数第 N 个结点
 '''
 from typing import Optional
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from utils.node import ListNode
+
+
 
 def removeNthFromEnd(head: Optional[ListNode], n: int) -> Optional[ListNode]:
     dummy = ListNode()

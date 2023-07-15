@@ -7,11 +7,7 @@ Description: 199. 二叉树的右视图
 
 from typing import List, Optional
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from utils.node import TreeNode
 
 def rightSideView(root: Optional[TreeNode]) -> List[int]:
     h = 0

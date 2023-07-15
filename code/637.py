@@ -8,12 +8,7 @@ Description: 637. 二叉树的层平均值
 from collections import namedtuple
 from typing import Optional, List
 
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from utils.node import TreeNode
 
 class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:

@@ -37,5 +37,3 @@ def minWindow(s: str, t: str) -> str:
                 left += 1
         right += 1
     return "" if res[1] > len(s) else s[res[0]: res[1]]
-
-print(minWindow("ADOBECODEBANC", "ABC"))

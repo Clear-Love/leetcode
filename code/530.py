@@ -7,12 +7,7 @@ Description: 530. 二叉搜索树的最小绝对差
 
 from typing import Optional
 
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from utils.node import TreeNode
 
 class Solution:
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:

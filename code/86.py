@@ -7,10 +7,7 @@ Description: 86. 分隔链表
 
 from typing import Optional
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from utils.node import ListNode
 
 def partition(head: Optional[ListNode], x: int) -> Optional[ListNode]:
     p=small=ListNode(0)

@@ -7,10 +7,7 @@ Description: 61. 旋转链表
 
 from typing import Optional
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from utils.node import ListNode
 
 def rotateRight(head: Optional[ListNode], k: int) -> Optional[ListNode]:
     if not head:

@@ -7,11 +7,7 @@ Description: 106. 从中序与后序遍历序列构造二叉树
 
 from typing import List, Optional
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from utils.node import TreeNode
 
 def buildTree(inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
     def build(ind: List[int], post: List[int]):

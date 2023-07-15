@@ -5,11 +5,8 @@ LastEditors: lmio 2091319361@qq.com
 Description: 236. 二叉树的最近公共祖先
 '''
 
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from utils.node import TreeNode
+
 
 def lowestCommonAncestor(root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
     def ancestor(node: TreeNode) -> TreeNode:

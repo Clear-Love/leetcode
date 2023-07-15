@@ -38,5 +38,3 @@ def calcEquation(equations: List[List[str]], values: List[float], queries: List[
     for v in queries:
         res.append(bfs(v[0], v[1]))
     return res
-
-print(calcEquation([["a","b"],["b","c"]],[2.0,3.0],[["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]]))

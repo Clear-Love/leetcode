@@ -7,11 +7,7 @@ Description: 112. 路径总和
 
 from typing import Optional
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from utils.node import TreeNode
 
 def hasPathSum(root: Optional[TreeNode], targetSum: int) -> bool:
     def pathSum(node: TreeNode, sum) -> bool:

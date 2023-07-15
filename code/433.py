@@ -25,7 +25,3 @@ class Solution:
                         bank.remove(val)
                         queue.append([val, step+1])
         return -1
-    
-s = Solution()
-
-print(s.minMutation("AACCGGTT","AACCGCTA",["AACCGGTA","AACCGCTA","AAACGGTA"]))

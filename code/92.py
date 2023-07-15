@@ -7,11 +7,7 @@ Description: 92. 反转链表 II
 
 from typing import Optional
 
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from utils.node import ListNode
 
 def reverseBetween(head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
     dummy = ListNode(-1)

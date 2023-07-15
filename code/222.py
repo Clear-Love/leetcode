@@ -7,11 +7,8 @@ Description: 222. 完全二叉树的节点个数
 
 from typing import Optional
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from utils.node import TreeNode
+
 
 class Solution:
     def countNodes(self, root: Optional[TreeNode]) -> int:

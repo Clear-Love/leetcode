@@ -7,10 +7,8 @@ Description: 25. K 个一组翻转链表
 
 from typing import Optional
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from utils.node import ListNode
+
 
 def reverseKGroup(head: Optional[ListNode], k: int) -> Optional[ListNode]:
     def reverse(node: ListNode, k: int) -> ListNode:

@@ -7,10 +7,7 @@ Description: 141. 环形链表
 
 from typing import Optional
 
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from utils.node import ListNode
 
 def hasCycle(head: Optional[ListNode]) -> bool:
     if not head or not head.next:

@@ -7,11 +7,7 @@ Description: 226. 翻转二叉树
 
 from typing import Optional
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from utils.node import TreeNode
 
 def invertTree(root: Optional[TreeNode]) -> Optional[TreeNode]:
     def invert(node: TreeNode):

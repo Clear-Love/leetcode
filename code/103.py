@@ -8,12 +8,7 @@ Description: 103. 二叉树的锯齿形层序遍历
 from typing import List, Optional
 from collections import deque
 
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from utils.node import TreeNode
         
 class Solution:
     def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:

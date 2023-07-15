@@ -6,13 +6,8 @@ Description: 98. 验证二叉搜索树
 '''
 
 from typing import Optional
+from utils.node import TreeNode
 
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
         
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
