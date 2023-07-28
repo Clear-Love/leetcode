@@ -15,19 +15,15 @@ func GardenNoAdj(n int, paths [][]int) []int {
 		graph[u] = append(graph[u], v)
 		graph[v] = append(graph[v], u)
 	}
-
 	// 创建结果数组，并初始化为0，表示尚未选择花种
 	answer := make([]int, n)
-
 	// 遍历每个花园
 	for i := 0; i < n; i++ {
 		used := [5]bool{} // 记录相邻花园中已使用的花种
-
 		// 遍历相邻的花园
 		for _, j := range graph[i] {
 			used[answer[j]] = true
 		}
-
 		// 在未使用的花种中选择一种种植
 		for k := 1; k <= 4; k++ {
 			if !used[k] {
@@ -36,6 +32,5 @@ func GardenNoAdj(n int, paths [][]int) []int {
 			}
 		}
 	}
-
 	return answer
 }
