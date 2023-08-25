@@ -2,7 +2,7 @@
 Author: lmio 2091319361@qq.com
 Date: 2023-08-05 13:01:00
 LastEditors: lmio 2091319361@qq.com
-Description: 面试题 04.02. 最小高度树
+Description: 面试题 04.02. 最小树
 '''
 
 from typing import List

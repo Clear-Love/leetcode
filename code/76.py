@@ -8,32 +8,33 @@ Description: 76. 最小覆盖子串
 from collections import Counter
 
 
-def minWindow(s: str, t: str) -> str:
-    tCnt = Counter(t)
-    cur_tCnt = Counter()
-    left, right = 0, 0
-    length = 0
-    right = left
-    res = (0, float('inf'))
-    while right < len(s):
-        while left < len(s) and s[left] not in tCnt:
-            left += 1
-        while right < len(s) and s[right] not in tCnt:
-            right += 1
-        if right >= len(s):
-            break
-        if s[right] in tCnt:
-            cur_tCnt[s[right]] += 1
-        if cur_tCnt[s[right]] <= tCnt[s[right]]:
-            length += 1
-        while length == len(t):
-            if right - left < res[1] - res[0]:
-                res=(left, right+1)
-            cur_tCnt[s[left]] -= 1
-            if cur_tCnt[s[left]] < tCnt[s[left]]:
-                length -= 1
-            left += 1
-            while left < len(s) and s[left] not in tCnt:
-                left += 1
-        right += 1
-    return "" if res[1] > len(s) else s[res[0]: res[1]]
+
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        left = 0
+        res = [0, len(s)]
+        m = set(t)
+        tc = Counter(t)
+        sc = Counter()
+        def contain(cnts: Counter):
+            for ch in tc:
+                if cnts[ch] < tc[ch]:
+                    return False
+            return True
+        for right, ch in enumerate(s):
+            if ch not in m:
+                continue
+            sc[ch]+=1
+            if not contain(sc):
+                continue
+            while left <= right:
+                if right - left < res[1] - res[0]:
+                    res[0] = left
+                    res[1] = right
+                if s[left] in m:
+                    sc[s[left]] -= 1
+                    if sc[s[left]] < tc[s[left]]:
+                        left += 1
+                        break
+                left+=1
+        return s[res[0]: res[1]+1] if res[1] != len(s) else ''

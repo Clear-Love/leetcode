@@ -17,6 +17,7 @@ class UnionFind:
     def merge(self, x, y):
         root_x = self.find(x)
         root_y = self.find(y)
+        # 找rank大的作为根
         if root_x == root_y:
             return
         if self.rank[root_x] < self.rank[root_y]:
@@ -36,17 +37,3 @@ class UnionFind:
         if x not in self.parent:
             self.parent[x] = x
             self.rank[x] = 0
-
-ds = UnionFind()
-
-for i in range(5):
-    ds.add(i)
-
-ds.merge(0, 1)
-ds.merge(2, 3)
-ds.merge(0, 4)
-
-print(ds.find(1)) # 输出 0
-print(ds.find(3)) # 输出 2
-print(ds.find(4)) # 输出 0
-print(ds.is_connected(1, 4))
