@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-02-03 05:29:24
- * @LastEditTime: 2023-04-07 14:30:01
+ * @LastEditTime: 2023-09-03 23:26:18
  * @FilePath: /leetcode/utils/search.go
  * @Description:二分搜索及其变种
  */
@@ -19,7 +19,7 @@ func Search_left(nums []int, target int) int {
 	}
 	left, right:= 0, len(nums)-1
 	for left < right {
-		mid := (left + right) >> 1
+		mid := left + (right - left) >> 1
 		if nums[mid] < target {
 			left = mid + 1
 		}else {

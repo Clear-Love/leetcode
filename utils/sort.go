@@ -1,7 +1,7 @@
 /*
  * @Author: lmio
  * @Date: 2023-03-22 11:06:31
- * @LastEditTime: 2023-04-09 17:06:18
+ * @LastEditTime: 2023-09-03 23:22:44
  * @FilePath: /leetcode/utils/sort.go
  * @Description:排序
  */
@@ -29,7 +29,7 @@ func InsertSortUp[T comparable](array []T, less func(i, j int) bool)[]T  {
     for i:=1;i<n;i++ {
         for j:=i;j>0 && less(i, j);j-- {
                 array[j],array[j-1] = array[j-1],array[j]
-        }    
+        }
     }
     return array
 }
