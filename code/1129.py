@@ -6,32 +6,28 @@ Description: 1129. 颜色交替的最短路径
 '''
 
 from collections import defaultdict, deque
+from math import inf
 from typing import List
 
 
 class Solution:
-    def shortestAlternatingPaths(
-        self, n: int, redEdges: List[List[int]], blueEdges: List[List[int]]
-    ) -> List[int]:
-        graph = [defaultdict(list), defaultdict(list)]
+    def shortestAlternatingPaths(self, n: int, redEdges: List[List[int]], blueEdges: List[List[int]]) -> List[int]:
+        g = defaultdict(list)
         for i, j in redEdges:
-            graph[0][i].append(j)
+            g[i].append((j, 0))
         for i, j in blueEdges:
-            graph[1][i].append(j)
+            g[i].append((j, 1))
         res = [-1] * n
         vis = set()
-        q = deque([(0, 0), (0, 1)])
-        d = 0
+        q = deque([(0, -1, 0)])
         while q:
-            for _ in range(len(q)):
-                i, c = q.popleft()
-                if res[i] == -1:
-                    res[i] = d
-                vis.add((i, c))
-                # 颜色交替
-                c ^= 1
-                for j in graph[c][i]:
-                    if (j, c) not in vis:
-                        q.append((j, c))
-            d += 1
+            i, color, d = q.popleft()
+            if (i, color) in vis:
+                continue
+            vis.add((i, color))
+            if res[i] == -1 or d < res[i]:
+                res[i] = d
+            for j, c in g[i]:
+                if c != color:
+                    q.append((j, c, d+1))
         return res

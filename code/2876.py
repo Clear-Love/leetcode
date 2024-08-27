@@ -6,46 +6,41 @@ Description: 2876. 有向图访问计数
 tag: 内向基环树, 拓扑排序
 '''
 
-from collections import deque
+from collections import defaultdict, deque
 from typing import List
 
 
 class Solution:
     def countVisitedNodes(self, edges: List[int]) -> List[int]:
         n = len(edges)
-        rg = [[] for _ in range(n)] # 反图
-        deg = [0]*n # 入度表
-        for i, to in enumerate(edges):
-            rg[to].append(i)
-            deg[to] += 1
-        q = deque([i for i, v in enumerate(deg) if v == 0])
+        deg = [0]*n
+        for v in edges:
+            deg[v] += 1
+        q = [i for i in range(n) if deg[i] == 0]
+        # 反图
+        rg = defaultdict(list)
         while q:
-            v = q.popleft()
-            to = edges[v]
-            deg[to] -= 1
-            if deg[to] == 0:
-                q.append(to)
+            x = q.pop()
+            y = edges[x]
+            rg[y].append(x)
+            deg[y] -= 1
+            if deg[y] == 0:
+                q.append(y)
         res = [0]*n
-        # 在反图上遍历树枝
-        def rdfs(x: int, depth: int) -> None:
-            res[x] = depth
+        def dfs(x: int, cnt: int):
+            res[x] = cnt
             for y in rg[x]:
-                # 进入树枝
-                if deg[y] == 0:  # 树枝上的点在拓扑排序后，入度均为 0
-                    rdfs(y, depth + 1)
-        for i, d in enumerate(deg):
-            # 取出不在基环中的点
-            if d <= 0:
+                dfs(y, cnt+1)
+        for i in range(n):
+            if deg[i] == 0:
                 continue
-            x = i
-            ring = []
-            # 基环内的点入度为-1，防止重复
-            while True:
-                ring.append(x)
-                deg[x] = -1
-                x = edges[x]
-                if x == i:
-                    break
-            for x in ring:
-                rdfs(x, len(ring))
+            ringSize = 0
+            rings = []
+            while deg[i] > 0:
+                deg[i] -= 1
+                ringSize += 1
+                rings.append(i)
+                i = edges[i]
+            for y in rings:
+                dfs(y, ringSize)
         return res

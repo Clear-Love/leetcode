@@ -13,7 +13,7 @@ class Solution:
     def jobScheduling(self, startTime: List[int], endTime: List[int], profit: List[int]) -> int:
         works = sorted(zip(endTime, startTime, profit))
         n = len(works)
-        dp = [0]*(n+1)
+        dp = [0]*(n+1) #dp[i] 定义为完成第i个工作能获得的最大利润
         for i, (_, start, gold) in enumerate(works, start=1):
             j = bisect.bisect_right(works, start, hi=i, key=lambda x: x[0])
             dp[i] = max(dp[i-1], dp[j] + gold)
