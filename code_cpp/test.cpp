@@ -2,16 +2,10 @@
 
 using namespace std;
 
-extern "C" {
-struct BDL {
-    char t : 4;
-    char k : 4;
-    unsigned short i : 8;
-    unsigned long m;
-};
-}
+#define MIN(x, y) (x) < (y) ? (x) : (y)
 
 int main() {
-    cout << sizeof(struct BDL) << endl;
+    auto x = 1+MIN(1, 2);
+    cout << x << endl;
     return 0;
 }

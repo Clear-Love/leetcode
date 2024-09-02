@@ -3,6 +3,8 @@
         "limits": "c",
         "functional": "cpp",
         "iostream": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "forward_list": "cpp",
+        "complex": "cpp"
     }
 }
