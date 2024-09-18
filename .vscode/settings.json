@@ -5,6 +5,7 @@
         "iostream": "cpp",
         "tuple": "cpp",
         "forward_list": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "ranges": "cpp"
     }
 }
